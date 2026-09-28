@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow Code AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⌘</div>
+        <div>
+          <h1>Shadow Code</h1>
+          <span>AI Coding Assistant</span>
+        </div>
+      </div>
+
+      <button id="newChatBtn" class="new-chat">＋ New chat</button>
+
+      <div class="side-section">
+        <div class="side-label">Personality</div>
+        <div class="personality-card">
+          <div class="avatar">S</div>
+          <div>
+            <strong>Shadow</strong>
+            <small>Sharp • Helpful • Coder</small>
+          </div>
+          <span class="online-dot"></span>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Current model</div>
+        <div class="model-card">
+          <span class="model-dot"></span>
+          <div>
+            <strong>Gemini Flash</strong>
+            <small>Configured in config.js</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="status"><span></span> Browser-only mode</div>
+        <p>Your API key stays in your browser configuration. Never commit a real unrestricted key to a public repository.</p>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-header">
+        <div class="mobile-brand">
+          <div class="brand-icon">⌘</div>
+          <div>
+            <strong>Shadow Code</strong>
+            <small>AI Coding Assistant</small>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="clearBtn" class="icon-btn" title="Clear chat">⌫</button>
+          <button id="settingsBtn" class="icon-btn" title="API settings">⚙</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages">
+        <div class="welcome">
+          <div class="welcome-orb">S</div>
+          <h2>What are we building?</h2>
+          <p>Ask Shadow to debug code, design an app, explain a concept, or build something from scratch.</p>
+          <div class="suggestions">
+            <button data-prompt="Build me a responsive login page with HTML, CSS and JavaScript.">Build a login page</button>
+            <button data-prompt="Explain async/await in JavaScript with a simple example.">Explain async/await</button>
+            <button data-prompt="Find the likely bugs in this code and explain how to fix them.">Debug my code</button>
+            <button data-prompt="Design a clean folder structure for a Node.js REST API.">Design an API</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="typing" class="typing hidden">
+        <span></span><span></span><span></span>
+        <b>Shadow is thinking...</b>
+      </div>
+
+      <form id="composer" class="composer">
+        <textarea id="input" rows="1" placeholder="Message Shadow..."></textarea>
+        <div class="composer-bottom">
+          <span>Enter to send • Shift+Enter for new line</span>
+          <button id="sendBtn" type="submit" class="send">➤</button>
+        </div>
+      </form>
+      <div class="disclaimer">AI can make mistakes. Review generated code before running it.</div>
+    </main>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-box">
+      <button id="closeModal" class="modal-close">×</button>
+      <h2>API configuration</h2>
+      <p>For a GitHub Pages prototype, your browser calls the AI API directly. Do not publish an unrestricted production key.</p>
+      <label>Gemini API key</label>
+      <input id="apiKeyInput" type="password" placeholder="Paste your key here">
+      <button id="saveKeyBtn" class="save-key">Save locally</button>
+      <small>The key is stored only in this browser's localStorage.</small>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
